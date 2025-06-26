@@ -2,7 +2,7 @@ aws_access_key = "aws_secret_key"
 aws_secret_key = "<aws_secret_key>"
 
 region = "us-east-1"
-usermail = "yappank17@gmail.com"
+usermail = "vemburam116@gmail.com"
 quotahours = 20
 category = "Splunk-DC-1000"
 
