@@ -1,0 +1,6 @@
+---
+splunk_instance:
+  name: Licenser
+  private_ip: 172.31.91.2
+  instance_id: i-0a6a0dba53018dc89
+  splunk_admin_password: admin123

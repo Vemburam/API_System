@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Terraform and Ansible...
+      - yum install -y unzip
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
+      - unzip terraform.zip -d /usr/local/bin/
+      - terraform -version
+      - yum install -y python3-pip
+      - pip3 install ansible
+  build:
+    commands:
+      - echo Starting Splunk Deployment...
+      - aws s3 cp s3://splunk-tfvars-bucket-yourname/$TFVARS_FILE terraform.tfvars
+      - terraform init
+      - terraform apply -var-file="terraform.tfvars" -auto-approve
+      - ansible-playbook -i inventory site.yml
+artifacts:
+  files:
+    - '**/*'
